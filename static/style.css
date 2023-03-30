@@ -1,0 +1,18 @@
+.pet {
+    cursor: pointer;
+    opacity: 80%;
+    transition-duration: 500ms;
+}
+
+.pet:hover {
+    opacity: 100%;
+}
+
+.pet-image {
+    transition-duration: 300ms;
+}
+
+.pet-image:hover{
+    transform: scale(1.05)
+    
+}

@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+
+<div class="container text-center w-25">
+    <h1>Add new pet</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <img class="image-fluid rounded" src="{{ pet.photo_url }}" alt="NO IMAGE" style="width: 150px; height: 150px">
+        {% for field in form if field.widget.input_type != 'hidden' %}
+            <p>
+                
+                {{ field.label(class_="form-label") }}
+                {% if field != form.available %}
+                    {{ field(class_="form-control") }}
+                {% else %}
+                    {{ field(class_="form-check-input") }}
+                {% endif %}
+
+                {% for error in field.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+        {% endfor %}
+        <div class="row">
+            <div class="col-6">
+                <button class="btn btn-info w-100 text-light">Update</button>
+
+            </div>
+            <div class="col-6">
+                <a href="/{{ pet.id }}" class="btn btn-danger w-100">Back</a>
+
+            </div>
+
+        </div>
+    </form>
+    
+
+</div>
+
+
+{% endblock %}

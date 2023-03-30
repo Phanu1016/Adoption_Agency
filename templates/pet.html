@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+
+<div class="container text-center w-25">
+    
+    <div class="container">
+        <img class="image-fluid rounded" src="{{ pet.photo_url }}" alt="NO IMAGE" style="width: 150px; height: 150px">
+        <h4>Name: {{pet.name}}</h4>
+        <h4>Species: {{pet.species}}</h4>
+        {% if pet.age != 0 %}
+            <h4>Age: {{ pet.age }}</h4>
+        {% else %}
+            <h4>Age: -</h4>
+        {% endif %}
+
+        {% if pet.notes != '' %}
+            <h4>Notes: {{ pet.notes }}</h4>
+        {% else %}
+            <h4>Notes: -</h4>
+        {% endif %}
+        <a href="/{{pet.id}}/edit" class="btn btn-success">Edit</a>
+        <a href="/" class="btn btn-danger">Back</a>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Agency</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    {% block content %}
+    <div class="container text-center">
+        
+
+        <h1 class="text-secondary">Pets</h1>
+        <div class="container d-flex row">
+            {% for pet in pets %}
+                <div class="container col-4 pet">
+                    <a href="/{{ pet.id }}" class="text-decoration-none">
+                        <img class="image-fluid rounded pet-image" src="{{ pet.photo_url }}" alt="NO IMAGE" style="width: 150px; height: 150px">
+                        {% if pet.available == True %}
+                            <h4 class="text-primary">{{ pet.name }} <strong class="text-dark">is available!</strong></h4>
+                        {% else %}
+                            <h4>{{ pet.name }} <strong class="text-danger">is not available!</strong></h4>
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <a href="/add" class="btn btn-primary">Add pet</a>
+    </div>
+    
+    {% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</body>
+</html>
